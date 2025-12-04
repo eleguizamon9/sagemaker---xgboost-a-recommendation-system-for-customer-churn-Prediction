@@ -38,9 +38,9 @@ Flujo general:
 3. **Preprocesamiento:** El análisis exploratorio y preprocesamiento se realizan en una instancia de **SageMaker Notebook**.
 4. **Entrenamiento:** El modelo **XGBoost** se entrena en SageMaker y su ejecución se monitorea con **Amazon CloudWatch**.
 5. **Despliegue:** El modelo final se guarda en S3 y se despliega como un *endpoint* en tiempo real.
-6. **Frontend:** El frontend (`index.html`, CSS y JavaScript) se aloja en un bucket **S3** configurado como sitio web estático.
+6. **Frontend:** El frontend (index.html, CSS y JavaScript) se aloja en un bucket **S3** configurado como sitio web estático.
 7. **Interacción:** El cliente carga un archivo CSV desde la página web servida por S3.
-8. **Comunicación API:** El archivo se envía mediante una petición `POST` a una API HTTP configurada en **API Gateway**.
+8. **Comunicación API:** El archivo se envía mediante una petición POST a una API HTTP configurada en **API Gateway**.
 9. **Backend (Serverless):** API Gateway invoca la función **AWS Lambda** a través de una integración proxy.
 10. **Inferencia:** La función Lambda procesa el CSV, extrae las *features* y llama al endpoint de SageMaker para obtener las predicciones.
 11. **Lógica de Negocio:** Lambda construye el reporte con los clientes en riesgo y sus recomendaciones basadas en reglas de negocio.
