@@ -1,8 +1,6 @@
 # SageMaker + XGBoost: A Recommendation System for Customer Churn Prediction
 
-Puedes acceder a la página aquí:
-
-[**Abrir aplicación web (CSV Churn Predictor)**](http://churn-csv-frontend.s3-website-us-east-1.amazonaws.com/)
+Puedes acceder a la página aquí: [**Abrir aplicación web (CSV Churn Predictor)**](http://churn-csv-frontend.s3-website-us-east-1.amazonaws.com/)
 
 
 Este proyecto desarrolla un sistema completo de predicción de deserción de clientes utilizando Amazon SageMaker, Amazon S3, IAM, CloudWatch y API Gateway. Incluye análisis exploratorio de datos, selección de características, entrenamiento con XGBoost, optimización de costos mediante ajuste del umbral de clasificación y un sistema de recomendaciones basado en reglas de negocio.
