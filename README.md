@@ -25,7 +25,7 @@ El objetivo es predecir clientes que podrían cancelar el servicio (churn). Esto
 
 La solución sigue la siguiente arquitectura:
 
-![Arquitectura](Imagenes/Arquitectura.jpg)
+![Arquitectura](Imagenes/Arquitectura.jpeg)
 
 Flujo general:
 1. Almacenamiento de datos en S3.  
@@ -105,7 +105,7 @@ El dataset contiene información sobre uso del servicio telefónico y comportami
 
 Se generaron histogramas para observar las distribuciones:
 
-![histogramas](Imagenes/Histogramas.jpg)
+![histogramas](Imagenes/Histogramas.png)
 
 Conclusiones:
 - Varias variables presentan distribuciones aproximadamente gaussianas.  
@@ -135,7 +135,7 @@ Se analizaron frecuencias categóricas según el valor de "Churn?". Esto permiti
 Se compararon histogramas para cada variable segmentada por la variable objetivo.
 
 Por ejemplo, en "Day Mins":
-![minutos diarios](Imagenes/minutos_diarios.jpg)
+![minutos diarios](Imagenes/minutos_diarios.png)
 
 Conclusión: los clientes con más minutos diarios presentan un riesgo mayor de deserción.
 
@@ -286,7 +286,7 @@ Este sistema permite convertir la predicción en acciones útiles para la empres
 
 Para verificar el correcto funcionamiento de la función Lambda antes de integrarla con el sitio web y la API Gateway, se creó un evento de prueba dentro del panel de AWS Lambda. Esto permitió enviar manualmente un conjunto de datos simulados a la función para comprobar que el cuerpo del CSV era recibido correctamente, que podía ser leído por Pandas y que el flujo interno llegaba hasta la llamada al endpoint de SageMaker. Este proceso permitió detectar errores iniciales sin necesidad de ejecutar toda la arquitectura.
 
-![Testeo Lambda](Imagenes/testeo_lambda.jpg)
+![Testeo Lambda](Imagenes/testeo_lambda.jpeg)
 
 Durante estas pruebas se descubrió que la función Lambda no incluye por defecto librerías como NumPy o Pandas, lo cual generaba errores al intentar importarlas.
 
@@ -294,7 +294,7 @@ Durante estas pruebas se descubrió que la función Lambda no incluye por defect
 
 Para que la función Lambda pudiera ejecutar correctamente NumPy y Pandas fue necesario incorporar Layers. Se agregaron dos capas: una capa personalizada llamada numpy_layer y una capa proporcionada por AWS para Pandas. La capa de NumPy debió ser creada manualmente como un archivo .zip compatible con Python 3.10. La estructura interna del archivo debe seguir la jerarquía exigida por AWS, donde dentro del .zip debe existir primero una carpeta llamada python y dentro de esta una carpeta llamada lib que contenga el contenido de la librería. De lo contrario, la función Lambda no es capaz de identificar los módulos y se generan errores de importación.
 
-![Layers](Imagenes/Layers.jpg)
+![Layers](Imagenes/Layers.jpeg)
 
 # Conexión entre Lambda y el endpoint de SageMaker
 
@@ -302,7 +302,7 @@ La función Lambda actúa como puente entre la página web y el modelo entrenado
 
 # Trigger de la función Lambda mediante API Gateway
 
-![Function Overview](Imagenes/Function_overview.jpg)
+![Function Overview](Imagenes/Function_overview.jpeg)
 
 La función Lambda no corre de manera continua, únicamente se ejecuta cuando es invocada. En este proyecto la invocación proviene de una API HTTP configurada en API Gateway. Esta API funciona como la entrada pública al sistema y recibe las solicitudes POST enviadas desde el sitio web alojado en S3. La ruta configurada es POST /analyze-csv y está definida como una integración proxy, lo que significa que todo el cuerpo de la solicitud se pasa directamente a Lambda. API Gateway también gestiona las reglas CORS necesarias para permitir la comunicación entre el frontend alojado en S3 y la función Lambda sin restricciones de navegador.
 
@@ -342,7 +342,7 @@ La función Lambda implementa la lógica necesaria para leer el archivo CSV, dec
 
 # Autores
 
-Miller Alejandro Arboleda Garcia
-Edwin Ricardo Leguizamón Ballén
-Proyecto de Machine Learning con AWS SageMaker  
-Universidad Nacional de Colombia
+Miller Alejandro Arboleda Garcia, 
+Edwin Ricardo Leguizamón Ballén, 
+Proyecto de Machine Learning con AWS SageMaker,
+Universidad Nacional de Colombia sede Medellín
