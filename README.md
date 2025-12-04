@@ -1,4 +1,4 @@
-# SageMaker + XGBoost: A Recommendation System for Customer Churn Prediction
+# SageMaker + XGBoost: A recommendation system for customer churn prediction
 
 Puedes acceder a la página aquí: [**Abrir aplicación web (CSV Churn Predictor)**](http://churn-csv-frontend.s3-website-us-east-1.amazonaws.com/)
 
