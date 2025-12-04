@@ -28,7 +28,7 @@ El objetivo es predecir clientes que podrían cancelar el servicio (churn). Esto
 
 La solución sigue la siguiente arquitectura:
 
-![Arquitectura](Imagenes/Arquitectura.jpeg)
+![Arquitectura](Imagenes/AWS_Arquitectura.jpeg)
 
 Flujo general:
 ### Flujo General del Sistema
